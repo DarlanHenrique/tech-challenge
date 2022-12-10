@@ -39,25 +39,17 @@
 
     <body class="hold-transition sidebar-mini layout-fixed body-font" style="min-width:500px" id="body-site">
         <div class="wrapper">
-            {{--os arquivos incluidos de navbar, sidebar e footer--}}
             @include('includes.navbar')
-            @include('includes.success')
             <div class="content-wrapper">
-                {{--<div class="content-header">--}}
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-12 text-center">
-                                <h1>
-                                    {{--titulo da pagina é chamado atraves de um @/section no blade da propria pagina--}}
-                                    @yield('title')
-                                </h1>
-                            </div>
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-12 text-center">
+                            <h1> @yield('title')</h1>
                         </div>
                     </div>
-                {{--</div>--}}
-        <div class="content">
-            <div id="app" class="">
-                {{--o conteudo da pagina é incluido atraves de um @/section na pagina--}}
+                </div>
+                <div class="content">
+                    <div id="app">
                         @yield('content')
                     </div>
                 </div>
@@ -83,13 +75,6 @@
                 $('[data-toggle="tooltip"]').tooltip()
             });
         </script>
-        <script src="{{ asset('js/components/error.js')  }}"></script>
-        {{-- <script src="{{ asset('js/components/ajaxWatch.js')  }}"></script
-        <script>
-            $(document).ajaxWatch('.ajaxWatch', true, function(){
-                $(".ajaxWatch").closest('.deletable').slice(0).remove();
-            });
-        </script> --}}
         @stack('scripts')
     </body>
 

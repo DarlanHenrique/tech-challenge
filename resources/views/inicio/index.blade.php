@@ -4,11 +4,11 @@
     <div>
         @include('inicio.masterhead')
         @include('inicio.services')
-        @include('inicio.portfolio')
         @include('inicio.about')
+        @include('inicio.portfolio')
         @include('inicio.team')
-        @include('inicio.clients')
-        @include('inicio.contact')
+{{--         @include('inicio.clients')
+        @include('inicio.contact') --}}
     </div>
 
 @endsection
