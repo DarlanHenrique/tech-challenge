@@ -12,8 +12,45 @@
                 <li class="nav-item"><a class="nav-link" href="#about">Sobre o Produto</a></li>
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Exemplos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Time</a></li>
+                @if (Auth::check())
+                    <li class="nav-item">
+                        <form id="logout-form" method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="#" class="nav-link" onclick="$('#logout-form').submit()">
+                                <p>Sair</p>
+                            </a>
+                        </form>
+                    </li>
+                @else
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" href="#loginModal">Login</a></li>
+                @endif
 {{--            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> --}}
+
             </ul>
         </div>
     </div>
 </nav>
+
+<!-- Login modal popup-->
+<div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{{asset('storage/img/close-icon.svg')}}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                        {{-- Login with GitHub --}}
+                        <div class="flex items-center justify-end mt-4">
+                            <a class="btn" href="{{ url('auth/github') }}"
+                                style="background: #313131; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
+                                Login with GitHub
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

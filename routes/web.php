@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\GitHubController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,16 @@ use App\Http\Controllers\SiteController;
     //return view('welcome');
 //});
 Route::get('/', [SiteController::class, 'index'])->name('index');
+Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
+Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
+
+/* Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+ */
