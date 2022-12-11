@@ -20,6 +20,7 @@ class GitHubController extends Controller
         try {
      
             $user = Socialite::driver('github')->user();
+            $nickname = $user->nickname;
       
             $searchUser = User::where('github_id', $user->id)->first();
       
@@ -33,11 +34,13 @@ class GitHubController extends Controller
                 $gitUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'github_id'=> $user->id,
+                    'github_id'=> $user->user['id'],
+                    'github_nickname'=> $user->nickname,
                     'auth_type'=> 'github',
                     'password' => encrypt('gitpwd059')
                 ]);
      
+                dd($nickname);
                 Auth::login($gitUser);
       
                 return redirect('/dashboard');
