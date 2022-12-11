@@ -20,6 +20,7 @@ use App\Http\Controllers\GitHubController;
     //return view('welcome');
 //});
 Route::get('/', [SiteController::class, 'index'])->name('index');
+Route::get('/json', [SiteController::class, 'getJSON']);
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 

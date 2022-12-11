@@ -20,7 +20,6 @@ class GitHubController extends Controller
         try {
      
             $user = Socialite::driver('github')->user();
-            $nickname = $user->nickname;
       
             $searchUser = User::where('github_id', $user->id)->first();
       
@@ -40,7 +39,6 @@ class GitHubController extends Controller
                     'password' => encrypt('gitpwd059')
                 ]);
      
-                dd($nickname);
                 Auth::login($gitUser);
       
                 return redirect('/dashboard');
