@@ -38,7 +38,7 @@ class SiteController extends Controller
 
         $commit = GithubDatas::findOrFail($id);  
         $hoje= date("Y-m-d");
-        $datas = GithubCommits::all();
+        $datas = GithubCommits::orderBy('id', 'desc')->get();
         $data_limite = date('d/m/Y', strtotime('-90 day'));
         $explode_data = explode("/", $data_limite, 5);
         $day = $explode_data[0];
