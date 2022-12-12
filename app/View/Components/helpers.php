@@ -61,9 +61,7 @@ function updateRepos($commit_id, $commit_quantities){
     $githubDatas->save();
 }
 
-function readCommits ($nickname, $repo_name){
-    $repo_quantities = Auth::user()->github_repo_quantities;
-
+function readCommits ($nickname, $repo_name, $repo_quantities){
     $url = "https://api.github.com/repos/";
 
     $ch = curl_init();
@@ -81,7 +79,6 @@ function readCommits ($nickname, $repo_name){
     $commits = GithubDatas::all();
 
     for ($i = 0; $i < $repo_quantities; $i++) { 
-        dd($repo_quantities);
         for ($j=0; $j < $commits_quantities; $j++) { 
             $gitDatas = GithubCommits::create([
                 'github_datas_id' => $commits[$i]->id,

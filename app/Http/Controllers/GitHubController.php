@@ -49,7 +49,7 @@ class GitHubController extends Controller
                 repo_datas($github_user_info, $nickname, $user_id);
                 $github_datas = GithubDatas::all();
                 foreach ($github_datas as $github_data) { 
-                    readCommits($nickname, $github_data->project);
+                    readCommits($nickname, $github_data->project, $repo_quantities);
                 }
                 /* updateRepos($github_data->id, $commit_quantities); */
                 
