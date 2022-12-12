@@ -33,6 +33,19 @@ class SiteController extends Controller
         $repo_quantities = Auth::user()->github_repo_quantities;
 
         return view('projects.index', compact('user_id', 'commits', 'repo_quantities'));
-    }    
+    }
+    public function project($id, $project){
 
+        $commit = GithubDatas::findOrFail($id);  
+        $hoje= date("Y-m-d");
+        $datas = GithubCommits::all();
+        $data_limite = date('d/m/Y', strtotime('-90 day'));
+        $explode_data = explode("/", $data_limite, 5);
+        $day = $explode_data[0];
+        $month = $explode_data[1];
+        $year = $explode_data[2];
+
+        $count = 0;
+        return view('projects.project', compact('commit', 'project', 'datas', 'hoje', 'day', 'month', 'year', 'count'));
+    }
 }

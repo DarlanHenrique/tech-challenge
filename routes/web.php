@@ -26,6 +26,8 @@ Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [SiteController::class, 'dashboard'])->name('dashboard');
     Route::get('/projects', [SiteController::class, 'projects'])->name('projects');
+    Route::get('/project/{id}/{project?}', [SiteController::class, 'project'])->name('project');
+
 });
 /* Route::middleware([
     'auth:sanctum',

@@ -56,12 +56,13 @@ function updateUser($user_id, $repo_quantities){
 function updateRepos($commit_id, $commit_quantities){
     $githubDatas = GithubDatas::find($commit_id);
  
-    $githubDatas->commit_quantities = $commit_quantities;
+    $githubDatas->commits_quantities = $commit_quantities;
      
     $githubDatas->save();
 }
 
-function readCommits ($nickname, $repo_name, $repo_quantities){
+function readCommits ($nickname, $repo_name, $id){
+    $commits_output = NULL;
     $url = "https://api.github.com/repos/";
 
     $ch = curl_init();
@@ -74,16 +75,23 @@ function readCommits ($nickname, $repo_name, $repo_quantities){
     // $output contains the output string
     $commits_output = curl_exec($ch);
     curl_close($ch);
-    $commits_info = json_decode($commits_output);;
+    $commits_info = json_decode($commits_output);
     $commits_quantities = count($commits_info);
     $commits = GithubDatas::all();
 
-    for ($i = 0; $i < $repo_quantities; $i++) { 
-        for ($j=0; $j < $commits_quantities; $j++) { 
-            $gitDatas = GithubCommits::create([
-                'github_datas_id' => $commits[$i]->id,
-                'dates' => $commits_info[$j]->commit->author->date,
-            ]);
-        }
+    for ($j=0; $j < $commits_quantities; $j++) { 
+        $data = $commits_info[$j]->commit->author->date;
+        $explode_data = explode("/", date('d/m/Y', strtotime($data)), 5);
+        $day = $explode_data[0];
+        $month = $explode_data[1];
+        $year = $explode_data[2];
+        $gitDatas = GithubCommits::create([
+            'github_datas_id' => $id,
+            'full_date' => $data,
+            'day' => $day,
+            'month' => $month,
+            'year' => $year,
+        ]);
     }
+    return $commits_quantities;
 }

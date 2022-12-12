@@ -26,7 +26,10 @@ class AddGithubSocialIdField extends Migration
         Schema::create('github_commits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignIdFor(GithubDatas::class);
-            $table->string('dates');
+            $table->string('full_date');
+            $table->string('day');
+            $table->string('month');
+            $table->string('year');
             $table->timestamps();
         });
         Schema::table('users', function ($table) {

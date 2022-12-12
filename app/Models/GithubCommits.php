@@ -11,7 +11,10 @@ class GithubCommits extends Model
     use HasFactory;
     protected $fillable = [
         'github_datas_id',
-        'dates'
+        'full_date',
+        'day',
+        'month',
+        'year'
     ];
     public function github_datas()
     {
