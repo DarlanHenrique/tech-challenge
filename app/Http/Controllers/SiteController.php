@@ -44,8 +44,9 @@ class SiteController extends Controller
         $day = $explode_data[0];
         $month = $explode_data[1];
         $year = $explode_data[2];
+        $var = false;
 
         $count = 0;
-        return view('projects.project', compact('commit', 'project', 'datas', 'hoje', 'day', 'month', 'year', 'count'));
+        return view('projects.project', compact('commit', 'project', 'datas', 'hoje', 'day', 'month', 'year', 'count', 'var'));
     }
 }
