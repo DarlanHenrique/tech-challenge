@@ -30,7 +30,7 @@
 
         <script src="https://kit.fontawesome.com/fe02716ff2.js" crossorigin="anonymous"></script>
         {{--titulo e icone da aba no navegador--}}
-        <title>Observatório do Consumidor</title>
+        <title>Laravel Tech Challenge</title>
         <link rel="icon" type="imagem/png" href="{{ asset('img/sidebar-logo-fechada.png') }}" />
         @stack('styles')
 
@@ -40,6 +40,7 @@
         <div class="wrapper">
             {{--os arquivos incluidos de navbar, sidebar e footer--}}
             @include('includes.sidebar')
+            
             @include('includes.success')
             <div class="content-wrapper">
 {{--                 @include('includes.floatingbar')
@@ -62,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            @include('includes.footer')
+            @include('includes.footerSistema')
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

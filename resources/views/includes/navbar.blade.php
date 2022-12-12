@@ -10,9 +10,10 @@
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">Sobre o Produto</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Exemplos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Time</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Exemplos</a></li>
                 @if (Auth::check())
+                    <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
                     <li class="nav-item">
                         <form id="logout-form" method="post" action="{{ route('logout') }}">
                             @csrf

@@ -30,6 +30,7 @@ class User extends Authenticatable
         'github_id',
         'auth_type',
         'github_nickname',
+        'github_repo_quantities',
     ];
 
     /**
@@ -61,4 +62,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function user_list()
+    {
+        return $this->belongsTo(GithubDatas::class);
+    }
 }

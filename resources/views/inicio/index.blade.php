@@ -5,8 +5,8 @@
         @include('inicio.masterhead')
         @include('inicio.services')
         @include('inicio.about')
-        @include('inicio.portfolio')
         @include('inicio.team')
+        @include('inicio.portfolio')
 {{--         @include('inicio.clients')
         @include('inicio.contact') --}}
     </div>

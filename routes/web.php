@@ -20,11 +20,13 @@ use App\Http\Controllers\GitHubController;
     //return view('welcome');
 //});
 Route::get('/', [SiteController::class, 'index'])->name('index');
+Route::get('teste', [SiteController::class, 'teste'])->name('teste');
 Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [SiteController::class, 'dashboard'])->name('dashboard');
+    Route::get('/projects', [SiteController::class, 'projects'])->name('projects');
 });
 /* Route::middleware([
     'auth:sanctum',

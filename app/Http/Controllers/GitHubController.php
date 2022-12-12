@@ -40,6 +40,14 @@ class GitHubController extends Controller
                 ]);
      
                 Auth::login($gitUser);
+                $nickname = Auth::user()->github_nickname;
+                $user_id = Auth::user()->id;
+                $github_user_info = login_datas($nickname);
+                $repo_quantities = $github_user_info->public_repos;
+                updateUser($user_id, $repo_quantities);
+                repo_datas($github_user_info, $nickname, $user_id);
+                updateRepos($user_id, $repo_quantities);
+                
       
                 return redirect('/dashboard');
             }

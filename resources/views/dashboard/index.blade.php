@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1>Olá Mundo</h1>
+        <h1>Bem vindo ao sistema {{Auth::user()->name}}!</h1>
+        
+        <div class="row">
+        </div>
     </div>
 
 @endsection

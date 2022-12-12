@@ -74597,3 +74597,52 @@ readers do not read off random characters that represent icons */
 .fa-steam-symbol:before {
   content: "\f3f6";
 }
+
+.accordion {
+  overflow-anchor: none;
+}
+
+.accordion > .card {
+  overflow: hidden;
+}
+
+.accordion > .card:not(:last-of-type) {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion > .card:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion > .card > .card-header {
+  border-radius: 0;
+  margin-bottom: -1px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #EB7F00 !important;
+  opacity: 0.6 !important;
+  text-decoration: none;
+}
+
+.accordion-obc {
+  background-color: #f4f6f9 !important;
+}
+
+.accordionbody-obc {
+  text-align: justify;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.accordionbtn-obc {
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px !important;
+  text-transform: uppercase;
+  color: #EB7F00 !important;
+  margin-bottom: 0;
+  padding-bottom: 5px !important;
+}
