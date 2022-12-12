@@ -7,6 +7,7 @@ use Auth;
 use Exception;
 use Socialite;
 use App\Models\User;
+use App\Models\GithubDatas;
 
 class GitHubController extends Controller
 {
@@ -46,7 +47,11 @@ class GitHubController extends Controller
                 $repo_quantities = $github_user_info->public_repos;
                 updateUser($user_id, $repo_quantities);
                 repo_datas($github_user_info, $nickname, $user_id);
-                updateRepos($user_id, $repo_quantities);
+                $github_datas = GithubDatas::all();
+                foreach ($github_datas as $github_data) { 
+                    readCommits($nickname, $github_data->project);
+                }
+                /* updateRepos($github_data->id, $commit_quantities); */
                 
       
                 return redirect('/dashboard');
