@@ -24,6 +24,9 @@
         <script src="https://cdn.anychart.com/releases/v8/js/anychart-wordtree.min.js"></script>
         <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
 
+        <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
         <script src="https://cdn.anychart.com/releases/v8/js/anychart-map.min.js"></script>
         <script src="https://cdn.anychart.com/geodata/2.2.0/countries/brazil/brazil.js"></script>

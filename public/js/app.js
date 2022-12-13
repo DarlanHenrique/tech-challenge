@@ -5049,6 +5049,26 @@ __webpack_require__.r(__webpack_exports__);
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
 $('.sidebar-toggle-btn').PushMenu(options);
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+$(function () {
+  $('.select2').select2({
+    placeholder: 'Selecione'
+  });
+});
+$('select[value]').each(function () {
+  $(this).val($(this).attr('value'));
+});
+$('#cpf').mask('000.000.000-00');
+$('#cnpj').mask('00.000.000/0000-00');
+var behavior = function behavior(val) {
+    return val.replace(/\D/g, '').length === 11 ? '(00) 0 0000-0000' : '(00) 0000-00009';
+  },
+  options = {
+    onKeyPress: function onKeyPress(val, e, field, options) {
+      field.mask(behavior.apply({}, arguments), options);
+    }
+  };
+$('#phone').mask(behavior, options);
 
 /***/ }),
 

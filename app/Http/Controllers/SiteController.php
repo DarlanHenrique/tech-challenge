@@ -22,8 +22,9 @@ class SiteController extends Controller
 
     public function dashboard(){
 
-
-        return view('dashboard.index');
+        $datas = GithubCommits::orderBy('full_date', 'asc')->get();
+        $i = 0;
+        return view('dashboard.index', compact('datas', 'i'));
     }
 
     public function projects(){
@@ -45,8 +46,9 @@ class SiteController extends Controller
         $month = $explode_data[1];
         $year = $explode_data[2];
         $var = false;
+        $i = 0;
 
         $count = 0;
-        return view('projects.project', compact('commit', 'project', 'datas', 'hoje', 'day', 'month', 'year', 'count', 'var'));
+        return view('projects.project', compact('commit', 'project', 'datas', 'hoje', 'day', 'month', 'year', 'count', 'var', 'i'));
     }
 }

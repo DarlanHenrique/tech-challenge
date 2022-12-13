@@ -25,9 +25,8 @@ class GitHubController extends Controller
             $searchUser = User::where('github_id', $user->id)->first();
       
             if($searchUser){
-      
                 Auth::login($searchUser);
-     
+
                 return redirect('/dashboard');
       
             }else{
